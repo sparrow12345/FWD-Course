@@ -6,6 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Software Developer Resume</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+      const respimg = document.getElementById('respimg');
+      const title = document.getElementById('resptitle');
+      const uploaddate = document.getElementById('uploaddate');
+      
+      function fetchxkcd(email) {
+          const params = new URLSearchParams();
+          if (email) {
+              params.append('email', email);
+          }
+          console.log('https://fwd.innopolis.app/api/hw2?' + params.toString())
+          id = fetch('https://fwd.innopolis.app/api/hw2?' + params.toString())
+              .then(r => r.json());
+          resp = fetch('https://xkcd.com/{id.id}/info.0.json')
+              .then(r => r.json());
+          return resp
+      }
+      
+      resp = fetchxkcd('m.naser@innopolis.university');
+      console.log({resp})
+      respimg.src = resp.img
+      uploaddate.textContent = resp.date
+      title.textContent = resp.name
+    </script>
   </head>
   <body>
     <header>
@@ -18,6 +42,7 @@
           <li><a href="#experience">Experience</a></li>
           <li><a href="#education">Education</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="#XKCD_Image">XKCD</a></li>
         </ul>
       </nav>
     </header>
@@ -112,6 +137,12 @@
             </a>
           </li>
         </ul>
+      </section>
+      <section id = "XKCD_Image">
+        <h2>XKCD</h2>
+        <img id="respimg">
+        <p id="resptitle">image title</p>
+        <p id="uploaddate">date of upload</p>
       </section>
     </main>
     <footer>
