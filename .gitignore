@@ -1,0 +1,10 @@
+node_modules
+*.iml
+*.xml
+./node_modules/*
+build
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/

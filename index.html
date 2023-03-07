@@ -5,31 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Software Developer Resume</title>
-    <link rel="stylesheet" href="style.css">
-    <script>
-      const respimg = document.getElementById('respimg');
-      const title = document.getElementById('resptitle');
-      const uploaddate = document.getElementById('uploaddate');
-      
-      function fetchxkcd(email) {
-          const params = new URLSearchParams();
-          if (email) {
-              params.append('email', email);
-          }
-          console.log('https://fwd.innopolis.app/api/hw2?' + params.toString())
-          id = fetch('https://fwd.innopolis.app/api/hw2?' + params.toString())
-              .then(r => r.json());
-          resp = fetch('https://xkcd.com/{id.id}/info.0.json')
-              .then(r => r.json());
-          return resp
-      }
-      
-      resp = fetchxkcd('m.naser@innopolis.university');
-      console.log({resp})
-      respimg.src = resp.img
-      uploaddate.textContent = resp.date
-      title.textContent = resp.name
-    </script>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="./build/index.js"></script>
   </head>
   <body>
     <header>
